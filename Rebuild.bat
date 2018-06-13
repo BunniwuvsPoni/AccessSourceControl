@@ -1,0 +1,1 @@
+CScript.exe .\Compose.vbs .\Test.accdb

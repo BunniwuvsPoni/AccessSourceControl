@@ -1,0 +1,1 @@
+CScript.exe .\Decompose.vbs .\Test.accdb
