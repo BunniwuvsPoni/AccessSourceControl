@@ -55,6 +55,20 @@ Function exportModulesTxt(sAccessFilename, sExportpath)
     End If
     sSubAccessFilename  = sExportpath & myName & "_sub." & myType
 
+    WScript.Echo "Deleting existing folder..."
+    Dim exists
+    exists = fso.FolderExists(sExportpath)
+
+    If (exists) then
+	If Right(sExportpath, 1) = "\" then
+	   Dim truncate_one
+	   truncate_one = Left(sExportpath, Len(sExportpath) - 1)
+	   fso.DeleteFolder truncate_one
+	Else
+	   fso.DeleteFolder sExportpath
+	End If
+    End If
+
     WScript.Echo "Copy stub to " & sSubAccessFilename  & "..."
     On Error Resume Next
         fso.CreateFolder(sExportpath)
